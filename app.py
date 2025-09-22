@@ -7,6 +7,11 @@ import gdown
 import os
 from tensorflow.keras.models import load_model
 
+
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+app = Flask(__name__, template_folder=template_dir)
+
+
 # Config
 MODEL_PATH = "model/best_model.h5"
 DRIVE_URL = "https://drive.google.com/file/d/1prG4ByWvUISmE2iaYX9ao76CClOtcMAG/view?usp=sharing"
