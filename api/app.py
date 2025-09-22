@@ -8,13 +8,13 @@ import os
 from tensorflow.keras.models import load_model
 
 
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+template_dir = os.path.join(os.path.dirname(__file__), '../templates')
 app = Flask(__name__, template_folder=template_dir)
-
 
 # Config
 MODEL_PATH = "model/best_model.h5"
-DRIVE_URL = "https://drive.google.com/file/d/1prG4ByWvUISmE2iaYX9ao76CClOtcMAG/view?usp=sharing"
+DRIVE_URL = "https://drive.google.com/uc?id=1prG4ByWvUISmE2iaYX9ao76CClOtcMAG"
+
 
 IMAGE_SIZE = (256, 256)
 LABELS = ("Fake","Real")  # Folder order pe depend karta hai
