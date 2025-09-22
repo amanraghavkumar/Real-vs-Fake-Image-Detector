@@ -3,29 +3,17 @@ from flask import Flask, request, render_template, redirect, url_for
 import io, base64
 import numpy as np
 from PIL import Image
-import gdown
-import os
 from tensorflow.keras.models import load_model
 
 
-template_dir = os.path.join(os.path.dirname(__file__), '../templates')
-app = Flask(__name__, template_folder=template_dir)
-
 # Config
 MODEL_PATH = "model/best_model.h5"
-DRIVE_URL = "https://drive.google.com/uc?id=1prG4ByWvUISmE2iaYX9ao76CClOtcMAG"
-
 
 IMAGE_SIZE = (256, 256)
 LABELS = ("Fake","Real")  # Folder order pe depend karta hai
 
 # Flask app
 app = Flask(__name__)
-
-# Download if not exists
-if not os.path.exists(MODEL_PATH):
-    gdown.download(DRIVE_URL, MODEL_PATH, quiet=False)
-
 
 # Load model
 model = load_model(MODEL_PATH)
